@@ -7,11 +7,11 @@
 
     
 
-    <title>Archives: 2019/7 | Hexo</title>
+    <title>Google备份与同步登录出现问题的解决方案 | Hexo</title>
     <meta name="author" content="John Doe">
     <meta name="version" content="1.0.0">
     <meta name="keywords" content>
-    <meta name="description" content>
+    <meta name="description" content="看了网上很多朋友说是因为mac版的google drive只支持http代理，不支持sock代理。所以大家推荐的解决办法是用Proxifier这个软件来解决，不过软件要付费。这里说下另外一种解决方式吧，很简单。ss-ng默认这个配置是配好的，端口是1087，按默认来就好打开系统的网络设置，在“代理”中勾上“网页代理(HTTP)”，并且配置一样的端口1087即可。Over!">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 
@@ -53,7 +53,7 @@
                 <span class="nav-text">标签</span>
             </a>
         
-            <a class="nav-item active" href="/archives">
+            <a class="nav-item" href="/archives">
                 <span class="nav-text">归档</span>
             </a>
         
@@ -73,6 +73,8 @@
     <div id="aside-inner" class="aside-inner">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
 
+        
+        
         
         
 
@@ -129,64 +131,40 @@
 
 </header>
 
-        <div id="content" class="content">
-
-
+        <div id="content" class="content"><article class="article" itemscope itemprop="blogPost">
     
-    
-    
-    
-    
-    <section class="archives-wrap">
-    <div class="archive-year-wrap">
-    <a href="/archives/2019/07" class="page-hd">
-        2019/07
-    </a>
-    </div>
-    <ol class="archives">
-    
-
-    <li class="archive-section-item">
+    <header class="article-header">
         
-<article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <a class="archive-article-link" href="/2019/07/12/Google备份与同步登录出现问题的解决方案/">Google备份与同步登录出现问题的解决方案</a>
-            <span class="archive-article-date">
-                (<a class="article-date" href="/archives/2019/07">
-    
-    <time datetime="2019-07-12T03:31:55.000Z" itemprop="datePublished">7/12</time>
-</a>
-)
-            </span>
-        </header>
-    </div>
-</article>
-    </li>
-
-    
-    
-
-    <li class="archive-section-item">
+        <h1 itemprop="name">
+            Google备份与同步登录出现问题的解决方案
+        </h1>
         
-<article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <a class="archive-article-link" href="/2019/07/07/hello-world/">Hello World</a>
-            <span class="archive-article-date">
-                (<a class="article-date" href="/archives/2019/07">
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/2019/07/12/Google备份与同步登录出现问题的解决方案/index.html">
     
-    <time datetime="2019-07-07T14:17:37.293Z" itemprop="datePublished">7/7</time>
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-07-12T03:31:55.000Z" itemprop="datePublished">2019-07-12</time>
 </a>
-)
-            </span>
-        </header>
-    </div>
+
+            
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>看了网上很多朋友说是因为mac版的google drive只支持http代理，不支持sock代理。</p>
+<p>所以大家推荐的解决办法是用Proxifier这个软件来解决，不过软件要付费。这里说下另外一种解决方式吧，很简单。</p>
+<p>ss-ng默认这个配置是配好的，端口是1087，按默认来就好</p>
+<p><img src="https://gitee.com/BreezeFp/oss/raw/master/u9IicU.png" alt="pic"></p>
+<p>打开系统的网络设置，在“代理”中勾上“网页代理(HTTP)”，并且配置一样的端口1087即可。</p>
+<p><img src="https://gitee.com/BreezeFp/oss/raw/master/4uLsTQ.png" alt="pic"></p>
+<p>Over!</p>
+
+        
+    </section>
 </article>
-    </li>
-
-
-</ol></section>
 
 
 
@@ -250,6 +228,11 @@
         }
     });
     </script>
+    
+        <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+        </script>
     
 
 </body>
