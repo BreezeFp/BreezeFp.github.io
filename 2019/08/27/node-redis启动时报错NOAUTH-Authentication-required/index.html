@@ -7,11 +7,11 @@
 
     
 
-    <title>Archives: 2019 | Hexo</title>
+    <title>node-redis启动时报错NOAUTH-Authentication-required | Hexo</title>
     <meta name="author" content="John Doe">
     <meta name="version" content="1.0.0">
     <meta name="keywords" content>
-    <meta name="description" content>
+    <meta name="description" content="node-redis在启动后，默认会发送 info 命令，检测和服务端是否连接正常，但redis服务端在和客户端建立连接时，不会响应客户端的操作请求。当mode-redis在设置参数 auth_pass 或 passowd 后，node-redis 会在连接建立成功后调用 redisClient.auth(passowrd) 方法，并存储密码，并且在每次连接或者重连是再次调用此方法。回调本问题，当node-redis启动后，发送 info 命令当的操作在 redisClient.aut...">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 
@@ -53,7 +53,7 @@
                 <span class="nav-text">标签</span>
             </a>
         
-            <a class="nav-item active" href="/archives">
+            <a class="nav-item" href="/archives">
                 <span class="nav-text">归档</span>
             </a>
         
@@ -73,6 +73,8 @@
     <div id="aside-inner" class="aside-inner">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
 
+        
+        
         
         
 
@@ -129,106 +131,38 @@
 
 </header>
 
-        <div id="content" class="content">
-
-
+        <div id="content" class="content"><article class="article" itemscope itemprop="blogPost">
     
-    
-    
-    
-    
-    <section class="archives-wrap">
-    <div class="archive-year-wrap">
-    <a href="/archives/2019" class="page-hd">
-        2019
-    </a>
-    </div>
-    <ol class="archives">
-    
-
-    <li class="archive-section-item">
+    <header class="article-header">
         
-<article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <a class="archive-article-link" href="/2019/08/27/node-redis启动时报错NOAUTH-Authentication-required/">node-redis启动时报错NOAUTH-Authentication-required</a>
-            <span class="archive-article-date">
-                (<a class="article-date" href="/archives/2019/08">
-    
-    <time datetime="2019-08-27T07:31:23.000Z" itemprop="datePublished">8/27</time>
-</a>
-)
-            </span>
-        </header>
-    </div>
-</article>
-    </li>
-
-    
-    
-
-    <li class="archive-section-item">
+        <h1 itemprop="name">
+            node-redis启动时报错NOAUTH-Authentication-required
+        </h1>
         
-<article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <a class="archive-article-link" href="/2019/08/13/软件插件集合/">软件插件集合</a>
-            <span class="archive-article-date">
-                (<a class="article-date" href="/archives/2019/08">
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/2019/08/27/node-redis启动时报错NOAUTH-Authentication-required/index.html">
     
-    <time datetime="2019-08-13T05:58:04.000Z" itemprop="datePublished">8/13</time>
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-08-27T07:31:23.000Z" itemprop="datePublished">2019-08-27</time>
 </a>
-)
-            </span>
-        </header>
-    </div>
-</article>
-    </li>
 
-    
-    
+            
 
-    <li class="archive-section-item">
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
         
-<article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <a class="archive-article-link" href="/2019/07/18/maven生命周期及使用/">maven生命周期及使用</a>
-            <span class="archive-article-date">
-                (<a class="article-date" href="/archives/2019/07">
-    
-    <time datetime="2019-07-18T13:15:07.000Z" itemprop="datePublished">7/18</time>
-</a>
-)
-            </span>
-        </header>
-    </div>
-</article>
-    </li>
+        <p>node-redis在启动后，默认会发送 info 命令，检测和服务端是否连接正常，但redis服务端在和客户端建立连接时，不会响应客户端的操作请求。</p>
+<p>当mode-redis在设置参数 auth_pass 或 passowd 后，node-redis 会在连接建立成功后调用 redisClient.auth(passowrd) 方法，并存储密码，并且在每次连接或者重连是再次调用此方法。</p>
+<p>回调本问题，当node-redis启动后，发送 info 命令当的操作在 redisClient.auth(passowrd) 方法调用之前，因此，会报错：NOAUTH Authentication required</p>
+<p>解决方法：node-redis提供了参数no_ready_check，默认false，即在启动时检测连接状态，可设置为true，即启动时不检查，官方文档中有一句话：<code>When a connection is established to the Redis server, the server might still be loading the database from disk. While loading, the server will not respond to any commands.</code>（当和和redis服务端已经建立连接时，服务端可能还在从磁盘加载数据，这个时候，服务端不会响应任何命令）</p>
+<p>因此，此报错信息可以忽略。</p>
 
-    
-    
-
-    <li class="archive-section-item">
         
-<article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <a class="archive-article-link" href="/2019/07/12/Google备份与同步登录出现问题的解决方案/">Google备份与同步登录出现问题的解决方案</a>
-            <span class="archive-article-date">
-                (<a class="article-date" href="/archives/2019/07">
-    
-    <time datetime="2019-07-12T03:31:55.000Z" itemprop="datePublished">7/12</time>
-</a>
-)
-            </span>
-        </header>
-    </div>
+    </section>
 </article>
-    </li>
-
-
-</ol></section>
 
 
 
@@ -292,6 +226,11 @@
         }
     });
     </script>
+    
+        <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+        </script>
     
 
 </body>
